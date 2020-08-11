@@ -8,7 +8,7 @@ import (
 	"log"
 )
 
-func connect() *mongo.Client {
+func Connect() *mongo.Client {
 	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
 
 	client, err := mongo.Connect(context.TODO(), clientOptions)
