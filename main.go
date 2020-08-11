@@ -3,16 +3,11 @@ package main
 import (
 	"log"
 	"net/http"
+	h "guestbook/http"
 )
 
-func viewHandler(writer http.ResponseWriter, request *http.Request) {
-	placeholder := []byte("Signature list goes here")
-	_, err := writer.Write(placeholder)
-	check(err)
-}
-
 func main() {
-	http.HandleFunc("/guestbook", viewHandler)
+	http.HandleFunc("/guestbook", h.ViewHandler)
 	err := http.ListenAndServe("localhost:8080", nil)
 	log.Fatal(err)
 }
