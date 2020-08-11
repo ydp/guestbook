@@ -6,7 +6,7 @@
 </div>
 
 <div>
-    <p>Signatures</p>
-    <p>go</p>
-    <p>here</p>
+    {{range .Signatures}}
+        <p>{{.}}</p>
+    {{end}}
 </div>
