@@ -25,3 +25,9 @@ func NewHandler(writer http.ResponseWriter, request *http.Request) {
 	err = html.Execute(writer, nil)
 	check(err)
 }
+
+func CreateHandler(writer http.ResponseWriter, request *http.Request) {
+	signature := request.FormValue("signature")
+	_, err := writer.Write([]byte(signature))
+	check(err)
+}
