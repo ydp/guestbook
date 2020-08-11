@@ -3,7 +3,9 @@ package http
 import (
 	"context"
 	"fmt"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"html/template"
 	"log"
 	"net/http"
@@ -11,19 +13,25 @@ import (
 
 var Client *mongo.Client
 
-type Signature struct {
-	Signature string
-}
-
 func ViewHandler(w http.ResponseWriter, r *http.Request) {
-	signatures := getStrings("signatures.txt")
-	fmt.Printf("%#v\n", signatures)
+	findOptions := options.Find()
+	collection := Client.Database("guestbook").Collection("signatures")
+	cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
+	var signatures []Signature
+	// Iterate through the cursor
+	for cur.Next(context.TODO()) {
+		var elem Signature
+		err := cur.Decode(&elem)
+		check(err)
+
+		signatures = append(signatures, elem)
+	}
+	if err := cur.Err(); err != nil {
+		log.Fatal(err)
+	}
 	html, err := template.ParseFiles("view.html")
 	check(err)
-	guestbook := Guestbook{
-		SignatureCount: len(signatures),
-		Signatures:     signatures,
-	}
+	guestbook := createGuestbook(signatures)
 	err = html.Execute(w, guestbook)
 	check(err)
 }
