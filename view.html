@@ -1,12 +1,13 @@
 <h1>Guestbook</h1>
 
 <div>
-    {{.SignatureCount}} total signatures -
-    <a href="/guestbook/new">Add Your Signature</a>
+    {{.CommentCount}} comments -
+    <a href="/guestbook/new">Add Comment</a>
 </div>
 
 <div>
-    {{range .Signatures}}
-        <p>{{.}}</p>
+    {{range .Comments}}
+        <p><b>Name: </b>{{.Name}}</p>
+        <p><b>Comment: </b>{{.Comment}}</p>
     {{end}}
 </div>
