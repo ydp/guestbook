@@ -1,6 +1,6 @@
 package http
 
-type guestbook struct {
-	signatureCount int
-	signatures []string
+type Guestbook struct {
+	SignatureCount int
+	Signatures     []string
 }

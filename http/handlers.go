@@ -11,9 +11,9 @@ func ViewHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Printf("%#v\n", signatures)
 	html, err := template.ParseFiles("view.html")
 	check(err)
-	guestbook := guestbook{
-		signatureCount: len(signatures),
-		signatures: signatures,
+	guestbook := Guestbook{
+		SignatureCount: len(signatures),
+		Signatures:     signatures,
 	}
 	err = html.Execute(writer, guestbook)
 	check(err)
