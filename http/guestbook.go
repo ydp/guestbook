@@ -2,7 +2,7 @@ package http
 
 type Comment struct {
 	Name string
-	Comment string
+	Message string
 }
 
 type Guestbook struct {

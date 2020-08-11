@@ -44,7 +44,7 @@ func NewHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreateHandler(w http.ResponseWriter, r *http.Request) {
-	comment := Comment{Name: r.FormValue("name"), Comment: r.FormValue("comment")}
+	comment := Comment{Name: r.FormValue("name"), Message: r.FormValue("message")}
 	collection := Client.Database("guestbook").Collection("comments")
 	insertResult, err := collection.InsertOne(context.TODO(), comment)
 	if err != nil {
