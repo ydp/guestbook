@@ -19,3 +19,9 @@ func ViewHandler(writer http.ResponseWriter, request *http.Request) {
 	check(err)
 }
 
+func NewHandler(writer http.ResponseWriter, request *http.Request) {
+	html, err := template.ParseFiles("new.html")
+	check(err)
+	err = html.Execute(writer, nil)
+	check(err)
+}
