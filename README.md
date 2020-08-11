@@ -25,3 +25,21 @@ $ go get go.mongodb.org/mongo-driver
 ```
 
 go get will print a warning that there are no go files. This can be ignored.
+
+# Usage
+
+Use the following command to run the guestbook web app from the guestbook directory:
+
+```shell script
+$ go run main.go
+```
+
+If the guestbook application can connect to the MongoDB database, it will print a message, otherwise it will print an error message.
+
+Open a browser with the following URL:
+
+```
+http://localhost:8080/guestbook
+```
+
+An empty guestbook should now be shown. New comments can be added by clicking on add comment.
