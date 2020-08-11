@@ -7,17 +7,19 @@
         <title>Add Comment</title>
     </head>
     <body>
-        <h1>Add Comment</h1>
-        <form action="/guestbook/create" method="post">
-            <div class="form-group">
-                <label for="name">Name:</label><br>
-                <input type="text" class="form-control" placeholder="Enter name" name="name">
-            </div>
-            <div class="form-group">
-                <label for="comment">Comment:</label><br>
-                <div><input type="text" class="form-control" placeholder="Enter message" name="message"></div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <div class="container">
+            <h1>Add Comment</h1>
+            <form action="/guestbook/create" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label><br>
+                    <input type="text" class="form-control" placeholder="Enter name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label><br>
+                    <div><input type="text" class="form-control" placeholder="Enter message" name="message"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </body>
 </html>
