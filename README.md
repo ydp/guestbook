@@ -4,7 +4,7 @@ A simple guestbook web app implemented with Go, MongoDB and Bootstrap.
 
 # Design Goals
 
-The focus of this project is to demonstrate how to implement a simple web app using Go, MongoDB and Bootstrap.
+The focus of this project is to demonstrate how to implement a simple web app using Go, MongoDB and Bootstrap. Security is not a concern, thus it should not be used on production systems.
 
 # Requirements
 
@@ -43,3 +43,27 @@ http://localhost:8080/guestbook
 ```
 
 An empty guestbook should now be shown. New comments can be added by clicking on add comment.
+
+# Manipulating the Database
+
+MongoDB includes a shell that can be used to manipulate the database. See the MongoDB documentation for details.
+
+To delete all comments, stop the guestbook web app and do the following
+
+```
+$ mongo
+> use guestbook
+switched to db guestbook
+> db.comments.drop()
+true
+```
+
+After starting the guestbook again, an empty guestbook is shown.
+
+# Credits
+
+The code is based on the guestbook example from the [Head First Go book](https://headfirstgo.com/).
+
+# License
+
+BSD 3-Clause License
