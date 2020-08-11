@@ -11,7 +11,11 @@ func ViewHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Printf("%#v\n", signatures)
 	html, err := template.ParseFiles("view.html")
 	check(err)
-	err = html.Execute(writer, nil)
+	guestbook := guestbook{
+		signatureCount: len(signatures),
+		signatures: signatures,
+	}
+	err = html.Execute(writer, guestbook)
 	check(err)
 }
 
