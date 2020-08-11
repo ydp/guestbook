@@ -6,15 +6,13 @@ import (
 )
 
 func viewHandler(writer http.ResponseWriter, request *http.Request) {
-	message := []byte("Hello, web!")
-	_, err := writer.Write(message)
-	if err != nil {
-		log.Fatal(err)
-	}
+	placeholder := []byte("Signature list goes here")
+	_, err := writer.Write(placeholder)
+	check(err)
 }
 
 func main() {
-	http.HandleFunc("/hello", viewHandler)
+	http.HandleFunc("/guestbook", viewHandler)
 	err := http.ListenAndServe("localhost:8080", nil)
 	log.Fatal(err)
 }
