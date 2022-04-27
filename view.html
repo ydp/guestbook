@@ -12,21 +12,21 @@
 
             <div>
                 {{.CommentCount}} comments -
-                <a href="/guestbook/new">Add Comment</a>
+                <a href="/guestbook/view/new">Add Comment</a>
             </div>
 
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="w-25">Name</th>
-                        <th class="w-75" >Message</th>
+                        <th class="w-35" >Message</th>
+                        <th class="w-25" >CreateTime</th>
                     </tr>
                 </thead>
                 <tbody>
                 {{range .Comments}}
                     <tr>
-                        <td>{{.Name}}</td>
                         <td>{{.Message}}</td>
+                        <td>{{.CreateTime}}</td>
                     </tr>
                 {{end}}
                 </tbody>

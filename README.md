@@ -1,6 +1,6 @@
 # Guestbook
 
-A simple guestbook web app implemented with Go, MongoDB and Bootstrap.
+An automation targeted simple guestbook web app implemented with Go, MongoDB and Bootstrap, inspired by [mthaler/guestbook](https://github.com/mthaler/guestbook)
 
 # Design Goals
 
@@ -39,7 +39,7 @@ If the guestbook application can connect to the MongoDB database, it will print 
 Open a browser with the following URL:
 
 ```
-http://localhost:8080/guestbook
+http://localhost/guestbook
 ```
 
 An empty guestbook should now be shown. New comments can be added by clicking on add comment.
